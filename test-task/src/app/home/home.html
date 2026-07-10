@@ -1,0 +1,34 @@
+<main class="main">
+  <div class="main__container">
+    <div class="main__header">
+        <h1>Choose your quiz</h1>
+        <span>10 different quizzes. 10 chances to prove your knowledge</span>
+    </div>
+    <div class="main__quizes">
+      @if (store.isLoading()) {
+        <div id="main__loading">
+          <span>Loading quizzes, please wait...</span>
+        </div>
+      }
+      @else if (store.loadError()) {
+        <div id="main__quizes__error">
+          <span>Failed to load quizzes. Please try again later.</span>
+        </div>
+      }
+      @else {
+        @for (quiz of store.quizes(); track quiz.id) {
+          <div>
+            <h2>{{ quiz.name }}</h2>
+            <span>{{ quiz.questions.length }} questions</span>
+            <button (click)="startQuiz(quiz)">Start</button>
+          </div>
+        }
+        @empty {
+          <div id="main__quizes__empty">
+            <span>No quizzes available</span>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</main>

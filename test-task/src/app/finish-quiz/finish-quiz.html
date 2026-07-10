@@ -1,0 +1,31 @@
+<main class="main">
+  <div class="main__container">
+    <div class="main__container__modal">
+      <div class="main__container__modal__header">
+        <h1>Quiz completed!</h1>
+        <span>Great job! You've successfully completed the quiz.</span>
+      </div>
+      @if (store.startedQuiz(); as quiz) {
+        <div class="main__container__modal__score">
+          <h2>{{ store.correctAnswerCount() }} / {{ quiz.questions.length }}</h2>
+          <span>Your score</span>
+        </div>
+        <div class="main__container__modal__stats">
+          <div id="green">
+            <h2>{{ store.correctAnswerCount() }}</h2>
+            <span>Correct</span>
+          </div>
+          <div id="red">
+            <h2>{{ store.wrongAnswerCount() }}</h2>
+            <span>Incorrect</span>
+          </div>
+          <div id="blue">
+            <h2>{{ resultTimer() }}</h2>
+            <span>Time taken</span>
+          </div>
+        </div>
+      }
+      <button (click)="backToHome()">Back to home</button>
+    </div>
+  </div>
+</main>

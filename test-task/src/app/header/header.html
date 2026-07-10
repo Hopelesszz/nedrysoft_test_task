@@ -1,0 +1,14 @@
+<header class="header">
+  <div class="header__container">
+    <h1>Quizes</h1>
+    @if (isQuiz()) {
+      <button (click)="cancelQuiz()">Cancel</button>
+    }
+    @else if(isFinish()) {
+
+    }
+    @else {
+      <button (click)="randomQuiz()">I'm lucky</button>
+    }
+  </div>
+</header>

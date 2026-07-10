@@ -1,0 +1,24 @@
+<main class="main">
+  <div class="main__container">
+    <div class="main__container__quiz">
+      @if (store.startedQuiz(); as quiz) {
+      <span>Question {{ store.startedQuizQuestionIndex() + 1 }} of {{ quiz.questions.length }} questions</span>
+      <div class="main__container__quiz__question">
+          <div class="main__container__quiz__question__text">
+            <h1>{{ quiz.questions[store.startedQuizQuestionIndex()].question }}</h1>
+            <span>Choose the correct answer</span>
+          </div>
+          <form (ngSubmit)="answerHandle()" class="main__container__quiz__question__answers">
+            @for (answer of quiz.questions[store.startedQuizQuestionIndex()].answers; track answer) {
+              <div>
+                <input (change)="userAnswer.set(answer)" type="radio" required name="answer" [id]="$index">
+                <label [for]="$index">{{ answer }}</label>
+              </div>
+            }
+            <button type="submit" id="next-btn">Answer</button>
+          </form>
+        </div>
+      }
+    </div>
+  </div>
+</main>

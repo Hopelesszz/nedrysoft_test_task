@@ -1,0 +1,177 @@
+@use "../../styles/mixins.scss" as *;
+
+.main {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  @include flex-direction-align(column, center);
+}
+.main__container {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  max-width: 1280px;
+  background-color: #F8F8FC;
+  padding: 60px 40px;
+  @include flex-direction-align(column, start);
+  gap: 40px;
+}
+.main__header {
+  @include flex-direction-align(column, start);
+
+  & h1 {
+    font-size: 36px;
+    font-weight: 600;
+  }
+  & span {
+    font-size: 22px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}
+.main__quizes {
+  width: 100%;
+  @include flex-direction-align(row, start);
+  flex-wrap: wrap;
+  gap: 25px;
+  padding-bottom: 30px;
+
+  & div {
+    @include width-height(217px, auto);
+    border: 1px solid #E5E7EB;
+    background-color: white;
+    border-radius: 10px;
+    @include flex-direction-justify-align(column, center, center);
+    gap: 15px;
+    padding: 15px 0px;
+
+    & h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+    & span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #6B7280;
+    }
+    & button {
+      @include width-height(80%, 42px);
+      background-color: #7C3AED;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #6D28D9;
+      }
+    }
+  }
+}
+#main__quizes__error {
+  width: 500px;
+  @include flex-direction-align(column, center);
+  gap: 20px;
+
+  & span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}
+@media (max-width: 767px) {
+  .main__container {
+    padding: 15px 20px;
+  }
+  #main__quizes__error {
+    width: 350px;
+    & span {
+      font-size: 15.5px;
+      font-weight: 400;
+      color: #6B7280;
+    }
+  }
+  .main__header {
+    & h1 {
+      font-size: 28px;
+    }
+    & span {
+      font-size: 16px;
+    }
+  }
+  .main__container {
+    padding: 20px 20px;
+  }
+  .main__quizes {
+    justify-content: space-between;
+    gap: 20px;
+
+    & div {
+      @include width-height(46%, auto);
+
+      & h2 {
+        font-size: 18px;
+      }
+      & span {
+        font-size: 12px;
+      }
+      & button {
+        @include width-height(80%, 32px);
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main__header {
+    & h1 {
+      font-size: 34px;
+    }
+    & span {
+      font-size: 22px;
+    }
+  }
+  .main__container {
+    padding: 30px 30px;
+  }
+  .main__quizes {
+    justify-content: space-between;
+
+    & div {
+      @include width-height(30.8%, auto);
+
+      & h2 {
+        font-size: 24px;
+      }
+      & span {
+        font-size: 18px;
+      }
+      & button {
+        @include width-height(80%, 45px);
+        font-size: 22px;
+      }
+    }
+  }
+}
+#main__quizes__empty {
+  width: 350px;
+  @include flex-direction-align(column, center);
+  gap: 20px;
+
+  & span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}
+#main__loading {
+  width: 350px;
+  @include flex-direction-align(column, center);
+
+  & span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}

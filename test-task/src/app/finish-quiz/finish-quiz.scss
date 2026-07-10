@@ -1,0 +1,143 @@
+@use "../../styles/mixins.scss" as *;
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  @include flex-direction-align(column, center);
+}
+.main__container {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 1280px;
+  background-color: #F8F8FC;
+  @include flex-direction-justify-align(column, center, center);
+}
+.main__container__modal {
+  @include width-height(640px, 560px);
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  @include flex-direction-justify-align(column, center, center);
+  gap: 40px;
+
+   & button {
+    @include width-height(300px, 50px);
+    background-color: #7C3AED;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #6D28D9;
+    }
+  }
+}
+.main__container__modal__header {
+  @include flex-direction-align(column, center);
+  gap: 10px;
+
+  & h1 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+  }
+  & span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}
+.main__container__modal__score {
+  @include flex-direction-align(column, center);
+  gap: 9px;
+
+  & h2 {
+    color: rgb(0, 202, 0);
+    font-size: 45px;
+    font-weight: 600;
+    margin: 0;
+  }
+  & span {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6B7280;
+  }
+}
+.main__container__modal__stats {
+  width: 100%;
+  @include flex-direction-justify-align(row, space-evenly, center);
+
+  & div {
+    border-radius: 10px;
+    @include width-height(150px, 150px);
+    @include flex-direction-justify-align(column, center, center);
+    gap: 5px;
+
+    & h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 0;
+    }
+    & span {
+      font-size: 16px;
+      font-weight: 400;
+      color: #6B7280;
+    }
+  }
+}
+#green {
+  background: #F6FDF8;
+  border: 1px solid #D8F5DE;
+}
+#red {
+  background: #FFF8F9;
+  border: 1px solid #F8D8DF;
+}
+#blue {
+  background: #F8FBFF;
+  border: 1px solid #D8E8FF;
+}
+@media (max-width: 767px) {
+  .main__container__modal {
+    @include width-height(90%, 100%);
+    padding: 20px 20px;
+    gap: 30px;
+
+    & button {
+      @include width-height(100%, 40px);
+      font-size: 18px;
+    }
+  }
+  .main__container__modal__header {
+    & h1 {
+      font-size: 28px;
+    }
+    & span {
+      font-size: 16px;
+    }
+  }
+  .main__container__modal__score {
+    & h2 {
+      font-size: 36px;
+    }
+    & span {
+      font-size: 16px;
+    }
+  }
+  .main__container__modal__stats {
+    & div {
+      @include width-height(29%, 80px);
+      gap: 3px;
+
+      & h2 {
+        font-size: 20px;
+      }
+      & span {
+        font-size: 12px;
+      }
+    }
+  }
+}
